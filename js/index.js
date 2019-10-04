@@ -1,0 +1,7 @@
+h = window.innerHeight - parseInt(d3.select("body").style('height')) + parseInt(d3.select("section").style('margin'))
+m = d3.select("section.maps").append("div")
+m.append("iframe")
+    .attr("id","myIframe")
+    .attr("height",h-20)
+    .attr("src","income_level.html")
+    .attr("frameborder","0")

@@ -1,0 +1,42 @@
+
+html{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12px;
+}
+
+body {
+    line-height: 1.4;
+}
+
+#myIframe {
+    /* height: 566px; */
+    padding: 0;
+    width: 100%;
+    border: 0;
+    overflow: hidden;
+}
+
+section {
+    margin: 10px 20px 0px;
+}
+
+.wrapper{
+    display: grid;    
+}
+
+.header {
+    display: grid;
+    grid-auto-columns: 100%;
+    justify-items: center;
+    background: rgb(223, 231, 241);
+    margin: 0px;
+    padding: 20px 0px 20px;
+}
+
+.maps{
+    display: grid;
+    grid-auto-columns: 100%;
+    grid-auto-rows: 100%;
+    margin: 0px
+}
