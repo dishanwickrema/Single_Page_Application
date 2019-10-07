@@ -1,25 +1,18 @@
 function createMap(map) {
-    if (map == 'IncomeLevel') {
-        h = window.innerHeight - parseInt(d3.select("body").style('height')) + parseInt(d3.select("section").style('margin'))
-        m = d3.select("section.maps").append("div")
-        m.append("iframe")
-            .attr("id", "myIframe")
-            .attr("height", h - 22)
-            .attr("src", "income_level.html")
-            .attr("frameborder", "0")
-    }
-    else{
-        d3.select("section.maps").select("div").remove()
-    }
+    h = window.innerHeight - parseInt(d3.select("body").style('height')) + parseInt(d3.select("section").style('margin'))
+    m = d3.select("section.maps").select("div")
+    m.append("iframe")
+        .attr("id", map)
+        .attr("height", h - 22)
+        .attr("src", map + ".html")
+        .attr("frameborder", "0")
 }
 
 function openMap(map, elmnt, color) {
     var i, tabcontent, tablinks;
-
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
-        console.log(tabcontent[i])
     }
 
     tablinks = document.getElementsByClassName("tablink");
@@ -30,9 +23,14 @@ function openMap(map, elmnt, color) {
     document.getElementById(map).style.display = "block";
     elmnt.style.backgroundColor = color;
 
-    createMap(map)
+    if (document.getElementsByTagName("iframe").length > 0) {
+        for (i=0;i<document.getElementsByTagName("iframe").length;i++) 
+            document.getElementsByTagName("iframe")[i].hidden = true
+
+        if (document.getElementsByTagName("iframe")[map])
+            document.getElementsByTagName("iframe")[map].hidden = false
+        else createMap(map)       
+    }else createMap(map)    
 }
 
-// Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-
