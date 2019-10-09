@@ -2,74 +2,89 @@
 function markerSize(population) {
   return population / 20;
 }
+// An array containing each city's name, location, and population
 
-var locations = [
-  {
-    coordinates: [43.65, -79.38],
-    region: {
-      name: "Toronto",
-      population: 2930000
-    }
+var areas = [{
+  location: [43.85, -79.02],
+  name: "Ajax",
+  population: "121,780"
   },
   {
-    coordinates: [44.10, -80.48],
-    region: {
-      name: "Durham",
-      population: 683600
-    }
+  location: [43.83, -79.87],
+  name: "Caledon",
+  population: "72,900"
   },
   {
-    coordinates: [43.53, -79.87],
-    region: {
-        name : "Halton",
-        population: 548435
-      }
+  location: [43.58, -79.64],
+  name: "Mississauga",
+  population: "726,359"
+  },
+  {
+  location: [43.92, -79.52],
+  name: "King",
+  population: "24,512"
+  },
+  {
+  location: [44.38, -79.69],
+  name: "Barrie",
+  population: "141,434"
+  },
+  {
+  location: [43.85, -79.33],
+  name: "Markham",
+  population: "301,709"
+  },
+  {
+  location: [43.88, -79.44],
+  name: "Richmond Hill",
+  population: "195,022"
+  },
+  {
+  location: [43.85, -79.50],
+  name: "Vaughan",
+  population: "323,281"
+  },
+  {
+  location: [43.73, -79.76],
+  name: "Brampton",
+  population: "603,346"
+  },
+  {
+  location: [43.65, -79.38],
+  name: "Toronto",
+  population: "2,930,000"
+  },
+  {
+  location: [44.10, -80.48],
+  name: "Durham",
+  population: "683,600"
+  },
+  {
+    location: [43.53, -79.87],
+    name : "Halton",
+    population: "548,435"
     },
     {
-      coordinates: [43.69, -79.45],
-      region: {
-        name : "York",
-        population: 1110000
-      }
+    location: [43.69, -79.45],
+    name : "York",
+    population: "1,110,000"
     }, 
     {
-      coordinates: [44.05, -80.18],
-      region: {
-        name : "Duffrin",
-        population: 61735
-      }
+    location: [44.05, -80.18],
+    name : "Duffrin",
+    population: "61,735"
     }, 
     {
-      coordinates: [42.83, -80.30],
-      region: {
-        name : "Simcoe",
-        population: 13922
-      } 
+    location: [42.83, -80.30],
+    name : "Simcoe",
+    population: "13,922" 
     }
   ];
 
-  // for (var i = 0; i < locations.length; i++) {
-  //   var region = locations[i];
-  //   L.marker(region.location)
-  //     .bindPopup("<h1>" + region.name + "</h1> <hr> <h3>Population " + region.population + "</h3>")
-  //     .addTo(mymap);
-  // };
+  
 // // Define arrays to hold created region markers
 var regionMarkers = [];
 
-// Loop through locations and create city and state markers
-for (var i = 0; i < locations.length; i++) {
-  // Setting the marker radius for the state by passing population into the markerSize function
-  regionMarkers.push(
-    L.marker(locations[i].coordinates, {
-      stroke: false,
-      fillOpacity: 0.75,
-      color: "red",
-      fillColor: "white",
-      radius: markerSize(locations[i].region.population)
-      })
-  );
-}
 
 // Define variables for our base layers
 
@@ -87,6 +102,7 @@ var darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?
   id: "mapbox.dark",
   accessToken: API_KEY
 });
+
 // Create a separate layer for regions
 var regions = L.layerGroup(regionMarkers);
 
@@ -99,7 +115,7 @@ var baseMaps = {
 // Create an overlay object
 
 var overlayMaps = {
-"Ragion Population": regions
+"Region Population": regions
 };
 
 // Define a map object
@@ -113,31 +129,38 @@ var mymap = L.map("mymap", {
 // Add the layer control to the map
 L.control.layers(baseMaps, overlayMaps, {
   collapsed: false
+
 }).addTo(mymap);
-  
+ 
 // Create a red circle over Toronto
 L.circle([43.6532, -79.3832], {
-    color: "red",
-    fillColor: "red",
+    color: "yellow",
+    fillColor: "blue",
     fillOpacity: 0.75,
     radius:10000
   }).addTo(mymap);
 
-// // Function that will determine the color of a neighborhood based on the borough it belongs to
-//   for (var i = 0; i < regions.length; i++) {
-//   function chooseColor(region) {
-//   switch (region) {
-//   case "Durham":
-//     return "yellow";
-//   case "Halton":
-//     return "red";
-//   case "York":
-//     return "orange";
-//   case "Duffrin":
-//     return "green";
-//   case "Simcoe":
-//     return "purple";
-//   default:
-//     return "black";
-//   }
+  for (var i = 0; i < areas.length; i++) {
+    var area = areas[i];
+    // var Population = population[i]
+    L.marker(area.location)
+      .bindPopup("<h1>" + area.name + "</h1> <hr> <h3>Population " + area.population + "</h3>")
+      .addTo(mymap);
+  }
+
+// function createMarkers(response) {
+// // Pull the "regions" property off of response.data
+// var regions = response.data.regions;
+
+// // Loop through the stations array
+// for (var index = 0; index < regions.length; index++) {
+//   var region = regions[index];
+
+//   // For each region, create a marker and bind a popup with the region's name
+//   var regionMarker = L.marker([region.lat, region.lon])
+//      .bindPopup("<h3>" + region.name + "<h3><h3>Population: " + region.population + "<h3>");
+//     // Add the marker to the bikeMarkers array
+//     regionMarkers.push(regionMarker)
+// }
+// createMap(L.layerGroup(regionMarkers))
 // }
