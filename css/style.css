@@ -4,15 +4,40 @@ html{
     /* font-size: 12px; */
 }
 
-body {
-    line-height: 1.4;
+
+.tabcontent {
+    /* width: 100%; */
+    /* height: 400px; */
+    /* background-image: url('header.png'); */
+    background-image: linear-gradient(to right,rgba(224, 224, 240, 0.377), rgba(168, 168, 168, 0.308)),
+                  url("../resources/header.png");
+    background-repeat: no-repeat;    
+    background-size: cover;
+    background-color: transparent;
+    
+}
+
+.tabcontent {
+    color: black;
+    padding: 1px;
+    text-align: left;
+    background-color: white    
+}
+
+.tabcontent h1 {
+    margin-left: 50px
+}
+
+.header{
+    height: 20%;
 }
 
 #incomelevel, #theft {
     padding: 0;
     width: 100%;
     border: 0;
-    overflow: hidden;
+    overflow: hidden
+    
 }
 
 /* section {
@@ -23,27 +48,27 @@ body {
     display: grid; 
 }
 
-.header {
+/* .header {
     display: block;
     grid-auto-columns: 100%;
     justify-items: center;
     background: rgb(223, 231, 241);
-    margin: 0px;
-    /* padding: 20px 0px 20px; */
-}
+    margin: 0px
+    
+} */
 
-.maps{
+/* .maps{
     display: grid;
     grid-auto-columns: 100%;
     grid-auto-rows: 100%;
     margin: 0px
-}
+} */
 
 /* Navigation */
 
 .tablink {
-    background-color: #555;
-    color: white;
+    background-color: rgb(228, 226, 226);
+    color: black;
     float: left;
     border: none;
     outline: none;
@@ -54,18 +79,31 @@ body {
 }
 
 .tablink:hover {
-    background-color: #777;
+    background-color: rgb(122, 121, 121);
+    color: white
 }
 
 /* Style the tab content */
-.tabcontent {
-    color: white;
-    display: none;
-    padding: 5px;
-    text-align: center;
-    background-color: green
+
+/* .tabcontent h1 {
+    margin-bottom: 0px;
+} */
+
+
+
+.mapview {
+    height: 85vh;
 }
 
-#theft, #incomelevel, #accidents, #population  {
-    background-color: blue;
+.info {
+	padding: 6px 8px;
+	/* font: 14px/16px Arial, Helvetica, sans-serif; */
+	background: white;
+	background: rgba(255,255,255,0.8);
+	box-shadow: 0 0 15px rgba(0,0,0,0.2);
+	border-radius: 5px;
+}
+.info h4 {
+	margin: 0 0 5px;
+	color: #777;
 }
