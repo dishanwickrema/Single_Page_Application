@@ -1,21 +1,33 @@
+
 function createMap(map) {
+    // mapID(map) !== "notmap" ? layingtheMap(map): ""
+    mapID(map) !== "notmap" ? layingtheMap(map): layPages(map)
+}
+function layingtheMap(map) {
     h = window.innerHeight - parseInt(d3.select("body").style('height')) + parseInt(d3.select("section").style('margin'))
     m = d3.select("section.maps").select("div")
     m.append("div")
         .attr("id", map)
         .attr("class", "mapview")
 
-    mapID(map) !== "notmap" ? layingtheMap(map):""
-}
-function layingtheMap(map) {
     if (map==="theft") {
         theftMap(map)
     }else if (map==="incomelevel") {
         incomeLevelMap(map)
     }else if (map==="accidents") {
         accidentsMap(map)
-    }
-  
+    }else if (map==="population") {
+        createPopulation(map)
+    }   
+}
+function layPages(map){
+    if (map==="home"){
+        m = d3.select("section.maps").select("div").append("div").attr("class", "mapview")
+        homePage(m)}
+    else if (map==="research"){
+        m = d3.select("section.maps").select("div").append("div").attr("class", "mapview")
+        researchPage(m)
+    }        
 }
 
 function mapID(map){

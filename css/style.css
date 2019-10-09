@@ -9,7 +9,7 @@ html{
     /* width: 100%; */
     /* height: 400px; */
     /* background-image: url('header.png'); */
-    background-image: linear-gradient(to right,rgba(224, 224, 240, 0.377), rgba(168, 168, 168, 0.308)),
+    background-image: linear-gradient(to right,rgba(237, 237, 246, 0.253), rgba(168, 168, 168, 0.116)),
                   url("../resources/header.png");
     background-repeat: no-repeat;    
     background-size: cover;
