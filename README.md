@@ -2,7 +2,7 @@
 
 > Data Visualization Project II
 
-![enter image description here](main.png)
+![enter image description here](images/main.png)
 
 ## What determines the your Insurance premiums?
 Data Suggests the **key compounding factors** are:
@@ -22,18 +22,18 @@ Data Suggests the **key compounding factors** are:
 	Lower the average Income darker the shade of color
 	Higher the average lighter the shade of color
 	
-![enter image description here](Images/incomelevel.png)
+![enter image description here](images/incomelevel.png)
 
 ## Cluster mapping Accidents of your Neighbourhood
 
     Accidents are widely spreaded across Toronto
     Data depicts higher number of accidents are recorded around the Downtown area followed by Brampton and Mississauga.
 
-![enter image description here](Images/accidents1.png)
+![enter image description here](images/accidents1.png)
 
-![enter image description here](Images/accidents2.png)
+![enter image description here](images/accidents2.png)
 
-![enter image description here](Images/accidents3.png)
+![enter image description here](images/accidents3.png)
 
 ## Is Population really a determining factor?
 
@@ -42,4 +42,4 @@ Data Suggests the **key compounding factors** are:
  - Higher the flow of Traffic, greater the probability  of  the driving misconducts
  - Our research captured premiums in Quebec and Northern territory is Immensely low, roughly averaging $600 per year, compared to Toronto’s average of $1800.
 
-![enter image description here](Images/population.png)
+![enter image description here](images/population.png)
